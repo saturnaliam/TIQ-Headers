@@ -1,3 +1,5 @@
+// Window information
+
 #include <Windows.h>
 #include "tiq.hpp"
 
@@ -9,7 +11,7 @@ TIQ::window TIQ::findWindow(wchar_t* executableName, wchar_t* windowTitle) {
     DWORD PID;
     TIQ::window window;
 
-    window.windowHandle = FindWindow(nullptr, windowTitle);
+    window.windowHandle = FindWindowW(nullptr, windowTitle);
 
     GetWindowThreadProcessId(window.windowHandle, &PID);
     window.PID = PID;

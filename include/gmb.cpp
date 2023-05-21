@@ -1,5 +1,13 @@
 // Get module base, used when we need to.. get the module's base address. no shit
 
+#ifndef UNICODE
+#define UNICODE
+#endif
+
+#ifndef _UNICODE
+#define _UNICODE
+#endif  
+
 #include <Windows.h>
 #include <tlhelp32.h>
 #include "tiq.hpp"
@@ -26,7 +34,7 @@ uintptr_t TIQ::getModuleBase(DWORD PID, const HWND windowHandle, wchar_t* execut
     if (Module32First(snapshotHandle, &moduleEntry)) {
         do
         {
-            if (_wcsicmp(reinterpret_cast<wchar_t*>(moduleEntry.szModule), executableName) == 0) moduleBaseAddress = reinterpret_cast<uintptr_t>(moduleEntry.modBaseAddr);
+            if (_wcsicmp(moduleEntry.szModule, executableName) == 0) moduleBaseAddress = reinterpret_cast<uintptr_t>(moduleEntry.modBaseAddr);
         } while (Module32Next(snapshotHandle, &moduleEntry));
     }
 
