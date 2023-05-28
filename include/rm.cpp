@@ -1,8 +1,5 @@
 // Read memory
 
-#include <Windows.h>
-#include <vector>
-#include <iostream>
 #include "tiq.hpp"
 
 /// @brief Follows the pointer path given to find the end address to read

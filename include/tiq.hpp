@@ -1,5 +1,16 @@
 #pragma once
+#ifndef UNICODE
+#define UNICODE
+#endif
+
+#ifndef _UNICODE
+#define _UNICODE
+#endif
+
+
 #include <Windows.h>
+#include <tlhelp32.h>
+#include <iostream>
 #include <vector>
 
 namespace TIQ {
@@ -10,7 +21,7 @@ namespace TIQ {
         DWORD_PTR baseAddress;
     };
     window findWindow(wchar_t* executableName, wchar_t* windowTitle);
-    
+
     uintptr_t getModuleBase(DWORD PID, const HWND windowHandle, wchar_t* executableName);
 
     DWORD_PTR followPointerPath(window processWindow, std::vector<DWORD_PTR> offsets);

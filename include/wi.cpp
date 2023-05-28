@@ -1,6 +1,5 @@
 // Window information
 
-#include <Windows.h>
 #include "tiq.hpp"
 
 /// @brief Finds a window given some information

@@ -1,15 +1,5 @@
 // Get module base, used when we need to.. get the module's base address. no shit
 
-#ifndef UNICODE
-#define UNICODE
-#endif
-
-#ifndef _UNICODE
-#define _UNICODE
-#endif  
-
-#include <Windows.h>
-#include <tlhelp32.h>
 #include "tiq.hpp"
 
 /// @brief Finds the base address of a given window
